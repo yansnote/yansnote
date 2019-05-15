@@ -23,7 +23,7 @@ class AuthorsController extends Controller
      */
     public function create()
     {
-        
+        return view('admin.authors.form');
     }
 
     /**
@@ -34,7 +34,7 @@ class AuthorsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
