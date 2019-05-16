@@ -13,7 +13,7 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        dd('articles page');
+        
     }
 
     /**
@@ -23,7 +23,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        
+        return view('admin.articles.form');
     }
 
     /**
@@ -34,7 +34,7 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
