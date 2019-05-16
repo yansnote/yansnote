@@ -2,7 +2,7 @@
 
 @section('content')
 	
-	<form action="{{ route('articles.store') }}" method="POST">
+	<form action="{{ route('articles.store') }}" method="POST" enctype="multipart/form-data">
 		@csrf
 		<div class="form-group">
 			<label for="title">Title</label>
@@ -20,6 +20,8 @@
 			<label for="content">Content</label>
 			<textarea name="content" cols="40" rows="20" class="form-control"></textarea>
 		</div> <!-- end of form-group -->
+
+		<input type="file" name="poster">
 
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
