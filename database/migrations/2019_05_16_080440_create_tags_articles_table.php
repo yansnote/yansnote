@@ -15,7 +15,11 @@ class CreateTagsArticlesTable extends Migration
     {
         Schema::create('tags_articles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->bigIncrements('articles_id');
+            $table->bigIncrements('tags_id');
+
+            $table->foreign('articles_id')->references('id')->on('articles');
+            $table->foreign('tags_id')->references('id')->on('tags');
         });
     }
 

@@ -17,11 +17,11 @@ class CreateArticlesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title', 250);
             $table->text('slug', 250);
-            $table->text('excerpt');
+            $table->text('excerpt')->nullable();
             $table->mediumText('content');
-            $table->string('poster', 250);
+            $table->string('poster', 250)->nullable();
             $table->tinyInteger('published');
-            $table->timestamp('published_at');
+            $table->timestamp('published_at')->nullable();
             $table->bigInteger('authors_id');
             $table->timestamps();
 
