@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Events;
+namespace App\Listeners;
 
+use App\Authors;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -26,6 +27,14 @@ class CreateAuthorByUser
      */
     public function handle(Registered $event)
     {
-        dd($event->id, $event->name);
+        $model = new Authors();
+
+        $model->pseudonym = $event->user->name;
+        $model->slug = md5(microtime().rand());
+        $model->users_id = $event->user->id;
+
+        $model->save();
+
+        dd('done!!');
     }
 }
