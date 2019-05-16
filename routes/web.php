@@ -20,3 +20,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('authors', 'AuthorsController');
+Route::resource('articles', 'ArticlesController')->middleware('auth');
