@@ -24,6 +24,8 @@ class CreateArticlesTable extends Migration
             $table->timestamp('published_at');
             $table->bigInteger('authors_id');
             $table->timestamps();
+
+            $table->foreign('authors_id')->references('id')->on('authors');
         });
     }
 

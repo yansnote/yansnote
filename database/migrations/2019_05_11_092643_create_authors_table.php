@@ -29,6 +29,8 @@ class CreateAuthorsTable extends Migration
             $table->string('github', 150)->nullable();
             $table->bigInteger('users_id');
             $table->timestamps();
+
+            $table->foreign('users_id')->references('id')->on('users');
         });
     }
 
