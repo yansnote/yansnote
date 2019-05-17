@@ -21,3 +21,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('authors', 'AuthorsController');
 Route::resource('articles', 'ArticlesController')->middleware('auth');
+
+Route::view('testupload', 'testupload');
+
+Route::post('upload', function (Illuminate\Http\Request $request) {
+	//Illuminate\Support\Facades\Storage\Storage::put('file.jpg', $request->poster);
+	dd($request);
+})->name('upload');
