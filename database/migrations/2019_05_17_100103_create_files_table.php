@@ -15,6 +15,9 @@ class CreateFilesTable extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name', 50);
+            $table->bigInteger('size');
+            $table->string('type', 50);
             $table->timestamps();
         });
     }
@@ -29,3 +32,6 @@ class CreateFilesTable extends Migration
         Schema::dropIfExists('files');
     }
 }
+name
+size
+type
