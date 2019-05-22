@@ -27,7 +27,7 @@ class CreateAuthorsTable extends Migration
             $table->string('youtube', 150)->nullable();
             $table->string('instagram', 150)->nullable();
             $table->string('github', 150)->nullable();
-            $table->bigInteger('users_id');
+            $table->bigInteger('users_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('users_id')->references('id')->on('users');

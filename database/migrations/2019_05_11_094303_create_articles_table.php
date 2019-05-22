@@ -22,7 +22,7 @@ class CreateArticlesTable extends Migration
             $table->string('poster', 250)->nullable();
             $table->tinyInteger('published');
             $table->timestamp('published_at')->nullable();
-            $table->bigInteger('authors_id');
+            $table->bigInteger('authors_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('authors_id')->references('id')->on('authors');

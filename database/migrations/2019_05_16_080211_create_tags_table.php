@@ -19,7 +19,7 @@ class CreateTagsTable extends Migration
             $table->string('slug', 100);
             $table->text('description')->nullable();
             $table->string('poster', 250)->nullable();
-            $table->bigInteger('authors_id');
+            $table->bigInteger('authors_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('authors_id')->references('id')->on('authors');
