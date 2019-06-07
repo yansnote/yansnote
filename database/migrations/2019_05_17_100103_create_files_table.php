@@ -17,7 +17,7 @@ class CreateFilesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('size');
             $table->string('type', 50);
-            $table->string('path', 60);
+            $table->string('path', 100);
             $table->timestamps();
         });
     }
