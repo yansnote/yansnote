@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Files;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 
@@ -31,22 +32,55 @@ class FileService
 	 *
 	 * @param Illuminate\Http\UploadedFile $file UploadedFile instance
 	 * 
-	 * @return void
+	 * @return string
 	 **/
 	public function upload(UploadedFile $file)
 	{
 		$this->model->type = $file->getClientMimeType();
 		$this->model->size = $file->getSize();
 
-		$this->model->path = Storage::put($this->path, $file);
+		$uploadedFile = Storage::put($this->path, $file);
+
+		$this->model->path = $uploadedFile;
 
 		$this->model->save();
 
-		return true;
+		return $uploadedFile;
 	}
 
-	public function model()
+	/**
+	 * Accessor + Mutator for the variable $model
+	 *
+	 * @return 	object
+	 * @param 	$model 	Illuminate\Database\Eloquent\Model 	null
+	 **/
+	public function model(Model $model = null)
 	{
+		if (is_null($model))
+		{
+			return $this->model;
+		}
 
+		$this->model = $model;
+
+		return $this;
+	}
+
+	/**
+	 * Accessor + Mutator for the variable $path
+	 *
+	 * @return 	String
+	 * @param 	$path 	String 	null
+	 **/
+	public function path($path = null)
+	{
+		if (is_null($path) OR empty($path))
+		{
+			return $this->path;
+		}
+
+		$this->path = $path;
+
+		return $this;
 	}
 }
