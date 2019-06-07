@@ -16,7 +16,15 @@ class FileService
 	 *
 	 * @var string
 	 **/
-	protected $uplodPath = "upload/" . data("Y") . "/" . date("M");
+	protected $path;
+
+	protected $model;
+
+	public function __construct()
+	{
+		$this->model = new Files;
+		$this->path = "upload/" . date("Y") . "/" . date("M");
+	}
 
 	/**
 	 * Upload file and insert uploaded file data to database
@@ -27,15 +35,18 @@ class FileService
 	 **/
 	public function upload(UploadedFile $file)
 	{
-		$model = new Files;
+		$this->model->type = $file->getClientMimeType();
+		$this->model->size = $file->getSize();
 
-		$model->type = $file->getClientMimeType();
-		$model->size = $file->getSize();
+		$this->model->path = Storage::put($this->path, $file);
 
-		$model->path = Storage::put($this->uploadPath, $file);
-
-		$model->save();
+		$this->model->save();
 
 		return true;
+	}
+
+	public function model()
+	{
+
 	}
 }
