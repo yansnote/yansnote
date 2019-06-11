@@ -42,7 +42,7 @@ class FileService
 		$uploadedFile = Storage::put($this->path, $file);
 
 		$this->model->path = $uploadedFile;
-
+		
 		$this->model->save();
 
 		return $uploadedFile;
