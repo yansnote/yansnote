@@ -26,5 +26,6 @@ Route::view('testupload', 'testupload');
 
 Route::post('upload', function (Illuminate\Http\Request $request) {
 	//Illuminate\Support\Facades\Storage\Storage::put('file.jpg', $request->poster);
-	dd($request);
+    $file = (new App\Services\FileService)->upload($request->file);
+	dd('done');
 })->name('upload');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Authors;
 use Illuminate\Http\Request;
 
 class AuthorsController extends Controller
@@ -45,7 +46,9 @@ class AuthorsController extends Controller
      */
     public function show($id)
     {
-        //
+        dd('nooooooo !!!');
+
+        //return view('admin.authors.detail', ['author' => Authors::findOrFail($id)]);
     }
 
     /**
@@ -56,7 +59,7 @@ class AuthorsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.authors.form', ['model' => Authors::findOrFail($id)]);
     }
 
     /**
@@ -68,7 +71,7 @@ class AuthorsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd($request);
     }
 
     /**
