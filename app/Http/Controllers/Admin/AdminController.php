@@ -5,14 +5,16 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
 /**
- * 
+ * Admin controller
  */
 class AdminController extends Controller
 {
     /**
-     * Constructor method
+     * Constructor Method
+     *
+     * @return App\Http\Controllers\Admin\AdminController
      **/
-    public function FunctionName()
+    public function __construct()
     {
         $this->middleware('auth');
     }
