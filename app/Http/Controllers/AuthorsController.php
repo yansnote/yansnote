@@ -46,9 +46,7 @@ class AuthorsController extends Controller
      */
     public function show($id)
     {
-        dd('nooooooo !!!');
-
-        //return view('admin.authors.detail', ['author' => Authors::findOrFail($id)]);
+        return view('admin.authors.detail', ['author' => Authors::findOrFail($id)]);
     }
 
     /**

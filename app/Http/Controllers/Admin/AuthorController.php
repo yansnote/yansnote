@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
-class AuthorController extends Controller
+class AuthorController extends AdminController
 {
     /**
      * Display a listing of the resource.
@@ -18,13 +18,18 @@ class AuthorController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Disply logged-in author's profile
      *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+     * @return type
+     **/
+    public function profile ()
     {
-        //
+        $user = Auth::user();
+
+        echo $user->name . "</br>";
+        echo $user->email;
+
+        dd($user->authors);
     }
 
     /**

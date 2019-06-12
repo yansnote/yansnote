@@ -2,8 +2,8 @@
 
 @section('content')
 	
-	<form action="{{ route('authors.update', $model->id) }}" method="PATCH" enctype="multipart/form-data">
-		@method('PATCH')
+	<form action="{{ route('authors.update', $model->id) }}" method="PUT" enctype="multipart/form-data">
+		@method('PUT')
 		@csrf
 		<div class="form-group">
 			<label for="name">Author Name</label>

@@ -29,3 +29,9 @@ Route::post('upload', function (Illuminate\Http\Request $request) {
     $file = (new App\Services\FileService)->upload($request->file);
 	dd('done');
 })->name('upload');
+
+Route::namespace('Admin')->prefix('admin')->group(function () {
+    Route::prefix('authors')->group(function () {
+        Route::get('profile', 'AuthorController@profile');
+    });
+});
