@@ -20,5 +20,13 @@ class Authors extends Model
     	'instagram',
     	'github',
     	'user_id'
-    ];
+	];
+	
+	/**
+	 * Get the user that owns the phone.
+	 */
+	public function user()
+	{
+		return $this->belongsTo('App\User', 'users_id');
+	}
 }

@@ -36,4 +36,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the author record associated with the user.
+     */
+    public function author()
+    {
+        return $this->hasOne('App\Authors', 'users_id', 'id');
+    }
 }
