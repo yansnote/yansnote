@@ -30,8 +30,10 @@ Route::post('upload', function (Illuminate\Http\Request $request) {
 	dd('done');
 })->name('upload');
 
-Route::namespace('Admin')->prefix('admin')->group(function () {
-    Route::prefix('authors')->group(function () {
-        Route::get('profile', 'AuthorController@profile');
+Route::namespace('Admin')->name('admin.')->prefix('admin')->group(function () {
+    Route::prefix('author')->name('author.')->group(function () {
+        Route::get('profile', 'AuthorController@profile')->name('profile');
     });
+
+    Route::resource('author', 'AuthorController');
 });

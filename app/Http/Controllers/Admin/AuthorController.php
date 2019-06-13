@@ -24,14 +24,7 @@ class AuthorController extends AdminController
      **/
     public function profile ()
     {
-        $user = Auth::user();
-
-        echo "Name : " . $user->name . "</br>";
-        echo "Email : " . $user->email . "</br>";
-        echo "Pseudonym : " . $user->authors->pseudonym . "</br>";
-        echo "Slug : " . $user->authors->slug;
-
-        dd("done");
+        return view('admin.authors.profile', ['author' => Auth::user()]);
     }
 
     /**
@@ -64,7 +57,7 @@ class AuthorController extends AdminController
      */
     public function edit($id)
     {
-        //
+        return view('admin.authors.form', ['model' => \App\User::findOrFail($id)]);
     }
 
     /**
