@@ -26,10 +26,12 @@ class AuthorController extends AdminController
     {
         $user = Auth::user();
 
-        echo $user->name . "</br>";
-        echo $user->email;
+        echo "Name : " . $user->name . "</br>";
+        echo "Email : " . $user->email . "</br>";
+        echo "Pseudonym : " . $user->authors->pseudonym . "</br>";
+        echo "Slug : " . $user->authors->slug;
 
-        dd($user->authors);
+        dd("done");
     }
 
     /**

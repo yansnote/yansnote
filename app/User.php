@@ -40,8 +40,8 @@ class User extends Authenticatable
     /**
      * Get the author record associated with the user.
      */
-    public function author()
+    public function authors()
     {
-        return $this->hasOne('App\Authors', 'users_id', 'id');
+        return $this->hasOne('App\Authors', 'users_id');
     }
 }

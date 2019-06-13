@@ -27,6 +27,6 @@ class Authors extends Model
 	 */
 	public function user()
 	{
-		return $this->belongsTo('App\User', 'users_id');
+		return $this->belongsTo('App\User', 'users_id', 'id');
 	}
 }
