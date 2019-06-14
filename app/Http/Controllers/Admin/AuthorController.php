@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Authors;
 
 class AuthorController extends AdminController
 {
@@ -69,7 +70,16 @@ class AuthorController extends AdminController
      */
     public function update(Request $request, $id)
     {
-        //
+        $author = Authors::find($id);
+
+        $author->pseudonym = $request->pseudonym;
+        $author->user->name = $request->pseudonym;
+        $author->slug = $request->slug;
+        $author->bio = $request->bio;
+
+        $author->save();
+
+        return redirect()->route('admin.author.profile');
     }
 
     /**
