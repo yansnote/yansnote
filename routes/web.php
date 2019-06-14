@@ -30,7 +30,15 @@ Route::post('upload', function (Illuminate\Http\Request $request) {
 	dd('done');
 })->name('upload');
 
+
+
+
 Route::namespace('Admin')->name('admin.')->prefix('admin')->group(function () {
+
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    });
+
     Route::prefix('author')->name('author.')->group(function () {
         Route::get('profile', 'AuthorController@profile')->name('profile');
     });

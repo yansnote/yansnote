@@ -104,7 +104,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Personal\yansnote-v1\resources\admin\js\app.js */"./resources/admin/js/app.js");
+module.exports = __webpack_require__(/*! D:\Personal\yansnote\resources\admin\js\app.js */"./resources/admin/js/app.js");
 
 
 /***/ })
